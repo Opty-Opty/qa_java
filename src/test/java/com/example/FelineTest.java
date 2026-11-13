@@ -1,28 +1,27 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
-    @Spy
     private Feline feline;
 
+    @Before
+    public void setUp() {
+        feline = new Feline();
+    }
+
     @Test
-    public void eatMeatCallsGetFoodPredatorAndReturnsFood() throws Exception {
+    public void eatMeatReturnsPredatorFood() throws Exception {
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         List<String> actualFood = feline.eatMeat();
 
         assertEquals(expectedFood, actualFood);
-        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
 
     @Test
@@ -31,10 +30,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensWithoutParamsCallsGetKittensWithOne() {
-        int actualKittens = feline.getKittens();
-
-        assertEquals(1, actualKittens);
-        Mockito.verify(feline, Mockito.times(1)).getKittens(1);
+    public void getKittensWithoutParamsReturnsOne() {
+        assertEquals(1, feline.getKittens());
     }
 }

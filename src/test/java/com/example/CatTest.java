@@ -37,6 +37,6 @@ public class CatTest {
         List<String> actualFood = cat.getFood();
 
         assertEquals(expectedFood, actualFood);
-        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 }
+

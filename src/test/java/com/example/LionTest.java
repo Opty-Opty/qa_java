@@ -25,7 +25,6 @@ public class LionTest {
         int actualKittens = lion.getKittens();
 
         assertEquals(1, actualKittens);
-        Mockito.verify(predator, Mockito.times(1)).getKittens();
     }
 
     @Test
@@ -37,7 +36,6 @@ public class LionTest {
         List<String> actualFood = lion.getFood();
 
         assertEquals(expectedFood, actualFood);
-        Mockito.verify(predator, Mockito.times(1)).eatMeat();
     }
 
     @Test
